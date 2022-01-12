@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} Produtos {% endblock%}
+
+{% block main %}
+
+<h4>Lista de Produtos</h4>
+     
+<thead>
+                
+    <tr>
+      <th scope="col">Foto</th>
+      <th scope="col">Código</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Preço</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    
+    {% for produto in object_list %}
+    <tr>
+      <td><img src="{{ produto.photo }}"></td>
+      <td>{{ produto.codigo }}</td>
+      <td>{{ produto.descricao }}</td>
+      <td>{{ produto.preco }}</td>
+      <td>
+        <a href="{% url 'produto_detail_cbv' produto.id %}"class="btn btn-success btn-sm">Ver</a>
+        <a href="{% url 'produto_update_cbv' produto.id %}"class="btn btn-warning btn-sm">Edit</a>
+        <a href="{% url 'produto_delete_cbv' produto.id %}"class="btn btn-danger btn-sm">X</a>
+      </td>
+    </tr>
+    {% empty %}
+    <li>Não Há Produtos cadastrados.</li>
+    {% endfor %}
+    <a href="{% url 'produto_create_cbv' %}"class="btn btn-primary btn-sm"> Novo Produto</a>
+  </tbody>
+</table>
+
+
+{% if persons|length > 2 %}
+    sua lista tem mais de 2 pessoas.
+{% endif %}
+
+{% endblock%}
+
+{% block footer %}
+  {% include 'footer.html' %}
+{% endblock  %}
+

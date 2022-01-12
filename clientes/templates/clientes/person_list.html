@@ -1,0 +1,10 @@
+Lista de pessoas
+<hr> 
+<p>{{ message }}</p>
+{% for person in object_list %}
+<br>    
+    <a href="{% url 'person_detail_cbv' person.pk %}">{{ person }}</a>
+{% endfor %}
+<hr>
+<br>
+<a href="{% url 'person_Create_cbv' %}"class="btn btn-primary btn-sm"> Novo Cliente</a>

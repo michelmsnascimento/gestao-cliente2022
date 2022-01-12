@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Dashboard {% endblock%}
+
+{% block main %}
+    <h3>Dashboard</h3>
+
+    <ul>
+        <li>Ticket medio: {{ media }}</li>
+        <li>Desconto medio: {{ media_desc }}</li>
+        <li>Menor valor: {{ min }}</li>
+        <li>Maior medio: {{ max }}</li>
+        <li>Numero de pedidos: {{ n_ped }}</li>
+        <li>Numero de pedidos com nfe: {{ n_ped_nfe }}</li>
+    </ul>
+{% endblock %}
+
+{% block footer %}
+  {% include 'footer.html' %}
+{% endblock  %}

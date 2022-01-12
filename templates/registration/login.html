@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Home! {% endblock %}
+    
+{% block main %}  
+
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="input-group form-group">
+                            
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                {{ form|bootstrap }}
+                                <button type="submit" class="btn btn-primary btn-sm">Login</button>
+                                <a href="{% url 'password_reset' %}" type="submit" >Esqueci minha senha</button>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

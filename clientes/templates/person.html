@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %} Clientes {% endblock%}
+
+{% block main %}
+
+<h4>Lista de Clientes</h4>
+     
+<thead>
+                
+    <tr>
+      <th scope="col">Foto</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Sobrenome</th>
+      <th scope="col">Idade</th>
+      <th scope="col">Função</th>
+      <th scope="col">opções</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    
+    {% for person in persons %}
+    <tr>
+      <td><img src="{{ person.photo }}"></img> </td>
+      <td>{{ person.first_name }}</td>
+      <td>{{ person.last_name }}</td>
+      <td>{{ person.age }}</td>
+      <td>{{ person.bio }}</td>
+      <td><a href="{% url 'person_update' person.id %}"class="btn btn-danger btn-sm">Edit</a>
+          <a href="{% url 'person_delete' person.id %}"class="btn btn-danger btn-sm">X</a>
+      </td>
+
+      
+    </tr>
+    {% empty %}
+    <li>Não Há clientes cadastrados.</li>
+    {% endfor %}
+    <a href="{% url 'person_new' %}"class="btn btn-primary btn-sm"> Novo Cliente</a>
+  </tbody>
+</table>
+
+
+{% if persons|length > 2 %}
+    sua lista tem mais de 2 pessoas.
+{% endif %}
+
+{% endblock%}
+
+{% block footer %}
+  {% include 'footer.html' %}
+{% endblock  %}
+

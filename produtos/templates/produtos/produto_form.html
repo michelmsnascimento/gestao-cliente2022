@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Cada! {% endblock%}
+    
+{% block main %}  
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+    <button type="submit"> Enviar </button>
+    </form>
+
+{% endblock %}
+{% block footer %}
+  {% include 'footer.html' %}
+{% endblock  %}

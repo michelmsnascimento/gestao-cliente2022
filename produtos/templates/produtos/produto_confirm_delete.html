@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Confirmação {% endblock %}
+
+{% block main %}
+<div class="alert alert-danger" role="alert">
+    Tem certeza que deseja deletar {{produto.descricao}}?
+  
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+    <button type="submit"class="btn btn-danger btn-sm"> Sim </button>
+    </form>
+</div>
+{% endblock %}
+{% block footer %}
+  {% include 'footer.html' %}
+{% endblock  %}
